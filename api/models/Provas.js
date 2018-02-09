@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
 
-    numero: 'integer',
+    prova: 'integer',
 
     distancia: {
       type: 'integer',
@@ -34,6 +34,18 @@ module.exports = {
       via: 'numProva'
 
     }
+
+/*    series: [
+      {
+        serie: 'integer',
+        atletas: {
+
+          collection: 'inscricoes',
+          via: 'numProva'
+
+        }
+      }
+    ]*/
 
   }
 };

@@ -15,6 +15,19 @@ module.exports = {
 
   },
 
+  balizamento: function (req, res) {
+
+    if (!req.param('id')) {
+      res.status(400);
+      res.view('404', {data: 'É necessária a especificação da prova!'});
+    }
+
+    Provas.findById(req.param('id')).populate('atletas', {sort: 'tempo DESC'}).exec((err, provas) => {
+      return res.send(BalizamentoService.balizar(provas[0], 5))
+    })
+
+  },
+
   socket: function (req, res) {
 
     if (!req.isSocket) {
